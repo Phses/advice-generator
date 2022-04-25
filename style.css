@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg-body: hsl(218, 23%, 16%);
+  --color-bg-card: hsl(217, 19%, 24%);
+  --primary-text-color: hsl(193, 38%, 86%);
+  --secondary-text-color: hsl(150, 100%, 66%);
+  --color-bg-btn: hsl(150, 100%, 66%);
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  font-size: 28px;
+  background: var(--color-bg-body);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: var(--primary-text-color);
+}
+
+.card {
+  background-color: var(--color-bg-card);
+  width: 550px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card__container {
+  padding: 30px;
+  color: var(--primary-text-color);
+  width: 100%;
+}
+
+.card__container small {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--secondary-text-color);
+}
+
+.card__container blockquote {
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.card__divider {
+  position: relative;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.card__btn-wrap {
+  position: absolute;
+  top: 60px;
+  left: 215px;
+}
+
+.card__btn {
+  background-color: var(--color-bg-btn);
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.card__btn:hover {
+  box-shadow: 0 0 40px hsl(150, 100%, 66%);
+}
+
+.card__btn::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background: url("./images/icon-dice.svg") no-repeat center center/cover;
+  z-index: 10;
+}
+
+footer {
+  margin-top: 50px;
+  color: var(--primary-text-color) !important;
+}
+
+footer h4 {
+  font-size: 1rem;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media (max-width: 420px) {
+  .card {
+    max-width: 335px;
+  }
+  .card__container {
+    padding: 20px;
+  }
+  .card__divider {
+    padding-bottom: 30px;
+  }
+
+  .card__btn-wrap {
+    top: 55px;
+    left: 120px;
+  }
+}
