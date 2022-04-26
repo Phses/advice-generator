@@ -2,6 +2,7 @@ const quote = document.querySelector(".card__quote");
 const counterMessage = document.querySelector(".counter");
 const cardDivider = document.querySelector(".card__divider");
 let counter = 0;
+setCounter();
 
 function saveCounterLocalStorage(lastCounter) {
   localStorage.setItem("counter", JSON.stringify(lastCounter));
@@ -9,6 +10,15 @@ function saveCounterLocalStorage(lastCounter) {
 
 function saveQuoteLocalStorage(quote) {
   localStorage.setItem("quote", quote);
+}
+
+function setCounter() {
+  if (localStorage.getItem("counter") === "null") {
+    counter = 0;
+  } else {
+    counter = parseInt(JSON.parse(localStorage.getItem("counter")));
+  }
+  counterMessage.textContent = counter.toString();
 }
 
 function changeImages() {
@@ -21,7 +31,6 @@ function changeImages() {
       .querySelector("img")
       .setAttribute("src", "./images/pattern-divider-desktop.svg");
   }
-  console.log(cardDivider.querySelector("img"));
 }
 
 document.querySelector(".card__btn").addEventListener("click", function (e) {
@@ -48,11 +57,7 @@ document.querySelector(".card__btn").addEventListener("click", function (e) {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (localStorage.getItem("counter") === "null") {
-    counter = 0;
-  } else {
-    counter = parseInt(JSON.parse(localStorage.getItem("counter")));
-  }
+  setCounter();
   counterMessage.textContent = counter.toString();
   let output = "";
   if (localStorage.getItem("quote") === null) {
